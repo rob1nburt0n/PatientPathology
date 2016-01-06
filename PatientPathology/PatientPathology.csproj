@@ -174,12 +174,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Biopsy.cs" />
     <Compile Include="Models\BiRads.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Pathology.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\ProviderUser.cs" />
+    <Compile Include="Models\RadExam.cs" />
     <Compile Include="Models\Technologist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
