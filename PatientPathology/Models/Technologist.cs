@@ -12,5 +12,8 @@ namespace PatientPathology.Models
         public int TechnologistID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        public Biopsy ConnectTechnologistToBiopsy { get; set; }
+        public RadExam ConnectTechnologistToRadExam { get; set; }
     }
 }

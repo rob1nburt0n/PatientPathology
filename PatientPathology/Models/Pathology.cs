@@ -12,5 +12,8 @@ namespace PatientPathology.Models
         public int PathologyID { get; set; }
         public string Type { get; set; }
         public string Classification { get; set; }
+
+        public Biopsy ConnectPathologyToBiopsy { get; set; }
+        public RadExam ConnectPathologyToRadExam { get; set; }
     }
 }

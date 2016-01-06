@@ -19,5 +19,10 @@ namespace PatientPathology.Models
         public string Zip { get; set; }
         public string Phone { get; set; }
         public string Gender { get; set; }
+
+        public Biopsy ConnectPatientToBiopsy { get; set; }
+        public RadExam ConnectPatientToRadExam { get; set; }
     }
+
+       
 }

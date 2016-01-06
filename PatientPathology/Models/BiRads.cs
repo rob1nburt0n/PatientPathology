@@ -12,5 +12,8 @@ namespace PatientPathology.Models
         public int BiRadsID { get; set; }
         public string Category { get; set; }
         public string Recommendation { get; set; }
+
+        public Biopsy ConnectBiRadsToBiopsy { get; set; }
+        public RadExam ConnectBiRadsToRadExam { get; set; }
     }
 }
