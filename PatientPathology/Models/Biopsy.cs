@@ -11,23 +11,14 @@ namespace PatientPathology.Models
     {
         [Key]
         public int BiopsyID { get; set; }
-        public string Date { get; set; }
-        public string Type { get; set; }
-
-        [ForeignKey("Pathology")]
-        public int PathologyID { get; set; }
-       
-        [ForeignKey("Patient")]
-        public int PatientID { get; set; }
-        
-        [ForeignKey("ProviderUser")]
-        public int ProviderUserID { get; set; }
-        
-        [ForeignKey("Technologist")]
-        public int TechnologistID { get; set; }
-       
-        [ForeignKey("RadExam")]
-        public int RadExamID { get; set; }
+        public string BioDate { get; set; }
+        public string BioType { get; set; }
+        public string PathClassification { get; set; }
+        public string PathType { get; set; }
+        public string PatLastName { get; set; }
+        public string PatDOB { get; set; }
+        public string ProvLastName { get; set; }
+        public string TechnologistName { get; set; }
     }
         
 }

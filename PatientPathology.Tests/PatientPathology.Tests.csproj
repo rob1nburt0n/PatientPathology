@@ -92,13 +92,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\PatientPathologyTests.cs" />
     <Compile Include="Models\ProviderUserTests.cs" />
-    <Compile Include="Models\TechnologistTests.cs" />
-    <Compile Include="Models\PathologyTests.cs" />
-    <Compile Include="Models\BiRadsTests.cs" />
     <Compile Include="Models\BiopsyTests.cs" />
-    <Compile Include="Models\RadExamTests.cs" />
+    <Compile Include="Models\RepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>

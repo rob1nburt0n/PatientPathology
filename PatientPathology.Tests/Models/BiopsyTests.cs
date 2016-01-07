@@ -19,22 +19,26 @@ namespace PatientPathology.Tests.Models
         {
             Biopsy a_biopsy = new Biopsy();
             a_biopsy.BiopsyID = 1;
-            a_biopsy.Type = "Ultrasound";
-            a_biopsy.Date = "01/15/2015";
-            a_biopsy.PathologyID = 1;
-            a_biopsy.PatientID = 1;
-            a_biopsy.ProviderUserID = 1;
-            a_biopsy.TechnologistID = 1;
-            a_biopsy.RadExamID = 1;
+            a_biopsy.BioType = "Ultrasound";
+            a_biopsy.BioDate = "01/15/2015";
+            a_biopsy.PathClassification = "Malignant";
+            a_biopsy.PathType = "IMC";
+            a_biopsy.PatLastName = "Smith";
+            a_biopsy.PatDOB = "12/12/1970";
+            a_biopsy.ProvLastName = "Jones";
+            a_biopsy.TechnologistName = "Jill";
+
 
             Assert.AreEqual(1, a_biopsy.BiopsyID);
-            Assert.AreEqual("Ultrasound", a_biopsy.Type);
-            Assert.AreEqual("01/15/2015", a_biopsy.Date);
-            Assert.AreEqual(1, a_biopsy.PathologyID);
-            Assert.AreEqual(1, a_biopsy.PatientID);
-            Assert.AreEqual(1, a_biopsy.ProviderUserID);
-            Assert.AreEqual(1, a_biopsy.TechnologistID);
-            Assert.AreEqual(1, a_biopsy.RadExamID);
+            Assert.AreEqual("Ultrasound", a_biopsy.BioType);
+            Assert.AreEqual("01/15/2015", a_biopsy.BioDate);
+            Assert.AreEqual("Malignant", a_biopsy.PathClassification);
+            Assert.AreEqual("IMC", a_biopsy.PathType);
+            Assert.AreEqual("Smith", a_biopsy.PatLastName);
+            Assert.AreEqual("12/12/1970", a_biopsy.PatDOB);
+            Assert.AreEqual("Jones", a_biopsy.ProvLastName);
+            Assert.AreEqual("Jill", a_biopsy.TechnologistName);
+
             
         }
 
@@ -43,11 +47,17 @@ namespace PatientPathology.Tests.Models
         {
             DateTime expected_time = DateTime.Now;
 
-            Biopsy a_biopsy = new Biopsy { BiopsyID = 1, Type = "Ultrasound", Date = "01/15/2015" };
+            Biopsy a_biopsy = new Biopsy { BiopsyID = 1, BioType = "Ultrasound", BioDate = "01/15/2015", PathClassification = "Malignant", PathType = "IMC", PatLastName = "Smith", PatDOB = "12/12/1970", ProvLastName = "Jones", TechnologistName = "Jill"};
 
             Assert.AreEqual(1, a_biopsy.BiopsyID);
-            Assert.AreEqual("Ultrasound", a_biopsy.Type);
-            Assert.AreEqual("01/15/2015", a_biopsy.Date);
+            Assert.AreEqual("Ultrasound", a_biopsy.BioType);
+            Assert.AreEqual("01/15/2015", a_biopsy.BioDate);
+            Assert.AreEqual("Malignant", a_biopsy.PathClassification);
+            Assert.AreEqual("IMC", a_biopsy.PathType);
+            Assert.AreEqual("Smith", a_biopsy.PatLastName);
+            Assert.AreEqual("12/12/1970", a_biopsy.PatDOB);
+            Assert.AreEqual("Jones", a_biopsy.ProvLastName);
+            Assert.AreEqual("Jill", a_biopsy.TechnologistName);
         }
     }
 }

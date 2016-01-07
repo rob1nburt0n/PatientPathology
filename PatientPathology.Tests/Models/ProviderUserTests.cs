@@ -18,16 +18,16 @@ namespace PatientPathology.Tests.Models
         public void ProviderUserEnsureProviderUserHasAllThings()
         {
             ProviderUser a_user = new ProviderUser();
-            a_user.Handle = "adam1";
-            a_user.FirstName = "Adam";
-            a_user.LastName = "Sand";
-            a_user.Title = "Radiologist";
+            a_user.ProviderUserId = 1;
+            a_user.UserFirstName = "Adam";
+            a_user.UserLastName = "Sand";
+            
 
-            Assert.AreEqual("adam1", a_user.Handle);
-            Assert.AreEqual("Adam", a_user.FirstName);
-            Assert.AreEqual("Sand", a_user.LastName);
-            Assert.AreEqual("Radiologist", a_user.Title);
+            Assert.AreEqual(1, a_user.ProviderUserId);
+            Assert.AreEqual("Adam", a_user.UserFirstName);
+            Assert.AreEqual("Sand", a_user.UserLastName);
 
         }
+
     }
 }

@@ -11,16 +11,16 @@ namespace PatientPathology.Models
         [Key]
         public int ProviderUserId { get; set; }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string UserFirstName { get; set; }
+        public string UserLastName { get; set; }
 
         [Required]
         [MaxLength(20)]
         [MinLength(5)]
         [RegularExpression(@"^[a-zA-Z\d]+[-_a-zA-Z\d]{0,2}[a-zA-Z\d]+")]
-        public string Handle { get; set; }
-        public string Title { get; set; }
+        
 
+        public List<Biopsy> Biopsy { get; set; }
 
     }
 }
