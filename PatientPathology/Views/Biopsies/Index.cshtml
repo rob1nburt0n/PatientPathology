@@ -1,0 +1,76 @@
+﻿@model IEnumerable<PatientPathology.Models.Biopsy>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BioDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BioType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PathClassification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PathType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatDOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProvLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TechnologistName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BioDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BioType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PathClassification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PathType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatDOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProvLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TechnologistName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BiopsyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BiopsyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BiopsyID })
+        </td>
+    </tr>
+}
+
+</table>

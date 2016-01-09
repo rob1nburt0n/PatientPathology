@@ -1,0 +1,83 @@
+﻿@model PatientPathology.Models.Biopsy
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Biopsy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BioDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BioDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BioType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BioType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PathClassification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PathClassification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PathType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PathType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatDOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatDOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProvLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TechnologistName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TechnologistName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BiopsyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

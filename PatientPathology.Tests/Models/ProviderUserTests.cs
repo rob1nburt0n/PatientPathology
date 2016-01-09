@@ -19,14 +19,11 @@ namespace PatientPathology.Tests.Models
         {
             ProviderUser a_user = new ProviderUser();
             a_user.ProviderUserId = 1;
-            a_user.UserFirstName = "Adam";
-            a_user.UserLastName = "Sand";
-            
-
+            a_user.Email = "Adam@gmail.com";
+           
             Assert.AreEqual(1, a_user.ProviderUserId);
-            Assert.AreEqual("Adam", a_user.UserFirstName);
-            Assert.AreEqual("Sand", a_user.UserLastName);
-
+            Assert.AreEqual("Adam@gmail.com", a_user.Email);
+            
         }
 
     }

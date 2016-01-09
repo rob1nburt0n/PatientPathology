@@ -6,21 +6,14 @@ using System.Web;
 
 namespace PatientPathology.Models
 {
-    public class ProviderUser
+    public class ProviderUser 
     {
         [Key]
         public int ProviderUserId { get; set; }
+        public virtual ApplicationUser RealUser { get; set; }
 
-        public string UserFirstName { get; set; }
-        public string UserLastName { get; set; }
-
-        [Required]
-        [MaxLength(20)]
-        [MinLength(5)]
-        [RegularExpression(@"^[a-zA-Z\d]+[-_a-zA-Z\d]{0,2}[a-zA-Z\d]+")]
-        
-
-        public List<Biopsy> Biopsy { get; set; }
-
+        public string Email { get; set; }
+   
+        public List<Biopsy> Biopsy { get; set; }  
     }
 }

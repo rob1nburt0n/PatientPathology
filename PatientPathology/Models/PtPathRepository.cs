@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity;
+using System.Data;
+using System.Data.Entity;
+using System.Net;
+using System.Web.Mvc;
 
 namespace PatientPathology.Models
 {
@@ -15,12 +20,80 @@ namespace PatientPathology.Models
             _context = new PtPathContext();
         }
 
-        public List<Biopsy> GetAllItems()
+        public PtPathRepository(PtPathContext context)
+        {
+            _context = context;
+        }
+
+        public List<Biopsy> GetAllBiopsies()
         {
             var query = from biopsy in _context.Biopsy select biopsy;
             return query.ToList();
         }
 
+        public List<Biopsy> GetUserBiopsy(ProviderUser user)
+        {
+            if (user != null)
+            {
+                var query = from u in _context.ProviderUser where u.ProviderUserId == user.ProviderUserId select u;
+                var item_query = from i in _context.Biopsy where i.Owner.ProviderUserId == user.ProviderUserId select i;
+                List<Biopsy> my_biopsy = item_query.ToList();
+                ProviderUser found_user = query.SingleOrDefault<ProviderUser>();
+
+
+                if (found_user == null)
+                {
+                    return new List<Biopsy>();
+                }
+                if (my_biopsy == null)
+                {
+                    return new List<Biopsy>();
+                }
+                else
+                {
+                    return my_biopsy;
+                }
+            }
+            else
+            {
+                return new List<Biopsy>();
+            }
+        }
+
+        public List<ProviderUser> GetAllUsers()
+        {
+            var query = from users in _context.ProviderUser select users;
+            return query.ToList();
+        }
+
+        public bool AddNewBiopsy(ProviderUser user, int id, string date, string type, string pathclass, string pathtype, string ptname, string ptdob, string provname, string tech)
+
+        {
+            bool is_added = true;
+            Biopsy new_biopsy = new Biopsy
+            {
+                Owner = user,
+                BioDate = date,
+                BioType = type,
+                PathClassification = pathclass,
+                PathType = pathtype,
+                PatLastName = ptname,
+                PatDOB = ptdob,
+                ProvLastName = provname,
+                TechnologistName = tech
+            };
+
+            try
+            {
+                Biopsy added_biopsy = _context.Biopsy.Add(new_biopsy);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                is_added = false;
+            }
+            return is_added;
+        }
         public List<Biopsy> SearchByType(string search_string)
         {
             var query = from BioType in _context.Biopsy select BioType;
@@ -75,6 +148,22 @@ namespace PatientPathology.Models
             var query = from TechnologistName in _context.Biopsy select TechnologistName;
             List<Biopsy> found_items = query.Where(Type => Type.TechnologistName.Contains(search_string)).ToList();
             return found_items;
+        }
+
+        public bool AddNewUser(ApplicationUser user)
+        {
+            ProviderUser new_user = new ProviderUser{RealUser = user, Email = user.Email};
+            bool is_added = true;
+            try
+            {
+                ProviderUser added_user = _context.ProviderUser.Add(new_user);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                is_added = false;
+            }
+            return is_added;
         }
     }
 }

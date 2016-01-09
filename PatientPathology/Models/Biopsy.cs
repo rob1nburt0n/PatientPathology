@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -11,6 +10,7 @@ namespace PatientPathology.Models
     {
         [Key]
         public int BiopsyID { get; set; }
+        public virtual ProviderUser Owner { get; set; }
         public string BioDate { get; set; }
         public string BioType { get; set; }
         public string PathClassification { get; set; }
