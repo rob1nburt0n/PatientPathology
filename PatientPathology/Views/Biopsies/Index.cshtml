@@ -13,18 +13,18 @@
 <p>
     @using(Html.BeginForm("Index", "Biopsies", FormMethod.Get))
     {
-    <b>Search By:</b>@Html.RadioButton("searchBy", "BioDate", true)<text>BioDate</text>
-    @Html.RadioButton("searchBy", "BioType")<text>BioType</text>
-    @Html.RadioButton("searchBy", "PathClassification")<text>PathClassification</text>
-    @Html.RadioButton("searchBy", "PathType")<text>PathType</text>
-    @Html.RadioButton("searchBy", "PatLastName")<text>PatLastName</text>
-    @Html.RadioButton("searchBy", "PatDOB")<text>PatDOB</text>
-    @Html.RadioButton("searchBy", "ProvLastName")<text>ProvLastName</text>
-    @Html.RadioButton("searchBy", "TechnologistName")<text>TechnologistName</text><br />
-    @Html.TextBox("search") <input type="submit" value="Search" />
+    <b>Search By: </b>@Html.RadioButton("searchBy", "BioDate", true)<text>BioDate  </text>
+    @Html.RadioButton("searchBy", "BioType")<text>BioType  </text>
+    @Html.RadioButton("searchBy", "PathClassification")<text>PathClassification  </text>
+    @Html.RadioButton("searchBy", "PathType")<text>PathType  </text>
+    @Html.RadioButton("searchBy", "PatLastName")<text>PatLastName  </text>
+    @Html.RadioButton("searchBy", "PatDOB")<text>PatDOB  </text>
+    @Html.RadioButton("searchBy", "ProvLastName")<text>ProvLastName  </text>
+    @Html.RadioButton("searchBy", "TechnologistName")<text>TechnologistName  </text><br /><br />
+    @Html.TextBox("search") <input type="submit" value="Search" /><br /><br />
     }
 </p>
-<table class="table border="1">
+<table class="table tableborder">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.BioDate)
