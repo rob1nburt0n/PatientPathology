@@ -7,17 +7,62 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PatientPathology.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PatientPathology.Controllers
 {
     public class BiopsiesController : Controller
     {
-        private PtPathContext db = new PtPathContext();
+        public PtPathRepository Repo { get; set; }
+
+        public BiopsiesController() : base()
+        {
+            Repo = new PtPathRepository();
+        }
 
         // GET: Biopsies
-        public ActionResult Index()
+
+        private PtPathContext db = new PtPathContext();
+        [Authorize]
+        public ActionResult Index(string SearchBy, string search)
+
         {
-            return View(db.Biopsy.ToList());
+            List<Biopsy> list_of_biopsies = Repo.GetAllBiopsies();
+            if (SearchBy == "BioDate")
+            {
+                return View(db.Biopsy.Where(x => x.BioDate == search).ToList());
+            }
+            else if (SearchBy == "BioType")
+            {
+                return View(db.Biopsy.Where(x => x.BioType == search).ToList());
+            }
+            else if (SearchBy == "PathClassification")
+            {
+                return View(db.Biopsy.Where(x => x.PathClassification == search).ToList());
+            }
+            else if (SearchBy == "PathType")
+            {
+                return View(db.Biopsy.Where(x => x.PathType == search).ToList());
+            }
+            else if (SearchBy == "PatLastName")
+            {
+                return View(db.Biopsy.Where(x => x.PatLastName.StartsWith(search)).ToList());
+            }
+            else if (SearchBy == "PatDOB")
+            {
+                return View(db.Biopsy.Where(x => x.PatDOB == search).ToList());
+            }
+            else if (SearchBy == "ProvLastName")
+            {
+                return View(db.Biopsy.Where(x => x.ProvLastName.StartsWith(search)).ToList());
+            }
+            else if (SearchBy == "TechnologistName")
+            {
+                return View(db.Biopsy.Where(x => x.TechnologistName.StartsWith(search)).ToList());
+            }
+
+            return View(list_of_biopsies);
+           
         }
 
         // GET: Biopsies/Details/5

@@ -171,7 +171,7 @@
     <Compile Include="Controllers\BiopsiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProviderUserController.cs" />
+    <Compile Include="Controllers\ProviderUsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -252,10 +252,15 @@
     <Content Include="Views\Biopsies\Index.cshtml" />
     <Content Include="Views\Shared\_BiopsyLayout.cshtml" />
     <Content Include="Views\Shared\_Nav.cshtml" />
+    <Content Include="Views\ProviderUsers\Create.cshtml" />
+    <Content Include="Views\ProviderUsers\Delete.cshtml" />
+    <Content Include="Views\ProviderUsers\Details.cshtml" />
+    <Content Include="Views\ProviderUsers\Edit.cshtml" />
+    <Content Include="Views\ProviderUsers\Index.cshtml" />
+    <Content Include="Views\Shared\BiopsyAction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ProviderUser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -116,37 +116,6 @@ namespace PatientPathology.Tests.Models
         }
 
         [TestMethod]
-        public void RepoEnsureICanGetAllItemsForASpecificUser()
-        {
-            List<ProviderUser> users_table = new List<ProviderUser>();
-            List<Biopsy> biopsy_table = new List<Biopsy>();
-
-            Biopsy test_biopsy = new Biopsy();
-
-            test_biopsy.BioDate = "01/12/2015";
-            test_biopsy.BioType = "Ultrasoud";
-            test_biopsy.PathClassification = "Malignant";
-            test_biopsy.PathType = "IMC";
-            test_biopsy.PatLastName = "Martin";
-            test_biopsy.PatDOB = "12/10/1970";
-            test_biopsy.ProvLastName = "Han";
-            test_biopsy.TechnologistName = "Jan";
-
-            biopsy_table.Add(test_biopsy);
-            ProviderUser test_owner = new ProviderUser { RealUser = test_user, ProviderUserId = 1, Biopsy = biopsy_table };
-            users_table.Add(test_owner);
-
-            ConnectMocksToDataStore(users_table);
-            ConnectMocksToDataStore(biopsy_table);
-
-            mock_set_users.Setup(i => i.Add(It.IsAny<ProviderUser>())).Callback((ProviderUser s) => users_table.Add(s));
-            mock_set.Setup(i => i.Add(It.IsAny<Biopsy>())).Callback((Biopsy s) => biopsy_table.Add(s));
-            List<Biopsy> expected = repo.GetUserBiopsy(test_owner);
-
-            Assert.AreEqual(1, expected.Count);
-        }
-
-        [TestMethod]
         public void RepoEnsureICanGetAllUsers()
         {
             var expected = new List<ProviderUser>
