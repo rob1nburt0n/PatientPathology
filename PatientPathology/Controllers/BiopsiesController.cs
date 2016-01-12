@@ -30,19 +30,19 @@ namespace PatientPathology.Controllers
             List<Biopsy> list_of_biopsies = Repo.GetAllBiopsies();
             if (SearchBy == "BioDate")
             {
-                return View(db.Biopsy.Where(x => x.BioDate == search).ToList());
+                return View(db.Biopsy.Where(x => x.BioDate.Contains(search)).ToList());
             }
             else if (SearchBy == "BioType")
             {
-                return View(db.Biopsy.Where(x => x.BioType == search).ToList());
+                return View(db.Biopsy.Where(x => x.BioType.Contains(search)).ToList());
             }
             else if (SearchBy == "PathClassification")
             {
-                return View(db.Biopsy.Where(x => x.PathClassification == search).ToList());
+                return View(db.Biopsy.Where(x => x.PathClassification.Contains(search)).ToList());
             }
             else if (SearchBy == "PathType")
             {
-                return View(db.Biopsy.Where(x => x.PathType == search).ToList());
+                return View(db.Biopsy.Where(x => x.PathType.Contains(search)).ToList());
             }
             else if (SearchBy == "PatLastName")
             {
@@ -50,7 +50,7 @@ namespace PatientPathology.Controllers
             }
             else if (SearchBy == "PatDOB")
             {
-                return View(db.Biopsy.Where(x => x.PatDOB == search).ToList());
+                return View(db.Biopsy.Where(x => x.PatDOB.Contains(search)).ToList());
             }
             else if (SearchBy == "ProvLastName")
             {
